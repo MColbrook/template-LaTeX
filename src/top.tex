@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% You can use 
+% \verbatiminput{<file_name>} 
+% to show source codes. Alternatively, use 
+% \verb+<your_code_here>+ to show code inline
+% or use
+% \begin{verbatim}
+%    ...
+% \end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ../include/code_params has a customized
+% code styling (for Verilog), please, modify
+% to use with any other source code.
+% Also, ../include/custom_comms has necessary
+% functions for the lstlistings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[12pt,DIV12]{scrartcl}	% I find this document type the nicest, can use beavel
+\documentclass[12pt]{article} % This document is the most neutral
+
+% ==========================================
+% Modify these on your own risk... :)
+\input{ ../include/include_packs}	% Packages
+\input{ ../include/page_params} 	% Page layout and parameters
+\input{ ../include/custom_comms}	% Custom commands
+\input{ ../include/code_params} 	% Code params for LISTINGS package
+
+
+% ==========================================
+% Document parameters
+% You can include pictures here
+\addHeader{ADI}{\LaTeX~Template} % {Left}{Right}
+
+% ==========================================
+% Document information:
+\title{Template for~\LaTeX~files}
+% \subtitle{Tutorial}
+\date{2013}
+\author{ 
+  Analog Devices, Inc\thanks{email \href{mailto:Zafar.Takhirov@Analog.com}{Zafar.Takhirov@Analog.com} 
+    for the source codes}
+}
+
+% ==========================================
+% Main Body:
+\begin{document}
+        \maketitle
+        %\thispagestyle{empty}
+        %\setcounter{page}{0}
+	%\input{../src/document_formatting.tex}
+        
+        \section *{Motivation}
+        \label{sec:motivation}
+        I write a lot of documents, so why not having a template and making all of them look the same?
+        
+        \pagebreak
+        \tableofcontents
+        
+        \pagebreak
+        \section {Writing codes in the \LaTeX~environment}
+        You can write your codes using \verb+lstlisting+. The default style is set to 
+        \verb+custom_verilog+, which is a Verilog environment (defined in the 
+        \verb+./include/code_params.tex+). To use the default environement use:
+
+        \begin{lstlisting}[language={[LaTeX]{TeX}},numbers=none]
+\begin{^\verb+lstlisting+^}[label=code:my_label,caption={My Caption}]
+  <Some Code Here>;
+  <More Code Here>;
+  <etc.>
+\end{^\verb+lstlisting+^}
+        \end{lstlisting}
+        \verb+label+ keyword allows you to reference your code, while \verb+caption+ creates a
+        caption (Duh!).
+
+        \section {Special functions that you can use}
+        \label{sec:functions}
+        I have written some \LaTeX functions that you can use. All of them are defined in the
+        \verb+./include/+ \verb+custom_comms.tex+ file. The possible functions are:
+        \begin{lstlisting}[language={[LaTeX]{TeX}},numbers=none]
+\makespace % Creates spacing after the \wrapfigure
+        \end{lstlisting}
+        
+        \subsection {Functions for collaboration}
+        \label{sec:functions:collaboration}
+        These functions might help you if you are writing a document with someone:
+        \begin{lstlisting}[language={[LaTeX]{TeX}},numbers=none]
+\fixme{This needs to be fixed! Are you sure this is right?}
+        \end{lstlisting}
+        Result: \\
+        \fixme{This needs to be fixed! Are you sure this is right?}
+
+        \begin{lstlisting}[language={[LaTeX]{TeX}},numbers=none]
+I have written a long text, and I am not sure if whatever after that is important.
+\ignore{This text although was written will not be shown on the final document.}
+I have ignored it for now, to see how it would look like without it.
+        \end{lstlisting}
+        Result: \\
+        I have written a long text, and I am not sure if whatever after that is important.
+        \ignore{This text although was written will not be shown on the final document.}
+        I have ignored it for now, to see how it would look like without it.
+
+        
+        \section {Included files}
+        \label{sec:files}
+        
+        \subsection {Codes}
+        \label{sec:files:codes}
+        The sample codes are saved in the \verb+./codes/+ directory. Currently there is 
+        a sample code called \verb+sample.sv+:
+        \lstinputlisting[
+          style=custom_verilog,
+          label=code:sample,
+          caption={This is just a sample code}
+        ]{../codes/sample.sv}
+
+        \subsection {Images}
+        \label{sec:files:images}
+        All the images should be stored in the \verb+./img/+ directory. Currently it is
+        empty.
+
+        \subsection {Formatting file}
+        \label{sec:files:formatting}
+        The \verb+src+ directory has a formatting reference. Noone follows it anyway:
+        \input{../src/document_formatting.tex}
+
+        \subsection {Bibliography}
+        \label{sec:files:bibliography}
+        The bibliography file is stored in the \verb+./src/+ directory. Currently has only
+        a sample reference to \cite{test}.
+        
+        % Add bibliography
+        %\pagebreak
+        \bibliographystyle{unsrt}
+        \bibliography{../src/top}
+        
+\end{document}

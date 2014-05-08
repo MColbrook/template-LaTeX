@@ -1,0 +1,55 @@
+\makeatletter
+% ==========================================
+% Define custom commands:
+
+% This is a Zebra code listing (creates neat ``zebra''-like
+% lines with numberings. You can define your own colors
+% (modify the code_params.tex)
+\newcommand\realnumberstyle[1]{#1}
+\newcommand{\zebra}[3]{%
+    {\realnumberstyle{#3}}%
+    \begingroup
+    \lst@basicstyle
+    \ifodd\value{lstnumber}%
+        \color{#1}%
+    \else
+        \color{#2}%
+    \fi
+        \rlap{\hspace*{\lst@numbersep}%
+        \color@block{\linewidth}{\ht\strutbox}{\dp\strutbox}%
+        }%
+    \endgroup
+}
+
+% This one is for making spaces around the wrapfigures
+% sometimes when the text is short, the wrapfigure will
+% try to make everything after itself change its size.
+% use \makespace to fix it
+\newcommand{\makespace} {
+  \par
+  \loop
+  \ifnum\c@WF@wrappedlines > 1
+  \hspace*{1sp}\newline
+  \advance\c@WF@wrappedlines by -1
+  \repeat
+  \par
+}
+
+% If you would like to get rid of some text, but still have it for future:
+% Just put the text that you would like to hide into \ignore{your text}
+\newcommand{\ignore}[1]{}
+
+% This is a fixme request. In case of collaboration, this thing will emphasize
+% the text and put a FIXME: keyword
+\newcommand{\fixme}[1] {
+  \textbf{\textcolor{red}{[FIXME: #1]}}
+}
+
+% Create tabs
+\newcommand{\tab} {
+ \hspace{.02\textwidth}                 
+}
+
+% End of commands definition
+% ==========================================
+\makeatother

@@ -1,0 +1,79 @@
+% ==========================================
+% Define code styles:
+\lstdefinestyle{custom_verilog}{
+  basicstyle=\footnotesize\ttfamily,
+  belowcaptionskip=0.1\baselineskip,
+  breaklines=true,
+  captionpos=t,
+  commentstyle=\color{green!40!black},
+  deletekeywords={...},
+  % Note that @ sign is better to use as an escape character 
+  % but in Verilog it is already reserved:
+  escapeinside={^}{^},
+  frame=L,
+  identifierstyle=\color{black},
+  keywordstyle=\bfseries\color{blue},
+  language=Verilog,
+  morecomment={
+        [s][\color{red}]{/*!}{*}
+  },
+  morekeywords={
+        *,
+        % Data type definitions:
+        bit,
+        electrical,
+        logic,
+        longint,
+        shortint,
+        shortreal,
+        typedef,
+        wreal,
+        ...,
+        % extra constructs:
+        interface,
+        endinterface,
+        exclude,
+        from,
+        ...,
+        % blocks:
+        analog,
+        ...},
+  numbers=left,
+  numberstyle=\zebra{gray!50}{white}, % Don't forget to declare ZEBRA command 
+  showstringspaces=false,
+  stepnumber=1,
+  stringstyle=\color{orange},
+  tabsize=2,
+  % title=\lstname,
+  xleftmargin=\parindent,
+}
+
+% Define ADICE language:
+\lstdefinelanguage{ADICE}{
+  alsoletter = {\$},
+  comment = [l]{\linebreak*},
+  keywords = {
+    *,
+    command,
+    eval, deval
+    if, elseif, else, endif,
+    include,
+    keep,
+    open, close,
+    print, printf,
+    radar,
+    set, reset,
+    use,
+    while, endwhile,
+  },
+  sensitive = false,
+  string = [b]",
+  % MORE:
+  % morecomment = [l]{**},
+  % moredelim = [l]{(}{)},
+}
+
+% Change the code caption (Listing is kinda lame):
+\renewcommand{\lstlistingname}{Code Listing}
+
+\lstset{style=custom_verilog} % By default assume all codes are verilog type

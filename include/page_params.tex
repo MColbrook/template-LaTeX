@@ -1,0 +1,21 @@
+% ==========================================
+% Modify global page parameters:
+\pagestyle{fancy}	% Style of the document
+\parindent=0pt		% default indentation
+% \setlength{\oddsidemargin}{15.5pt}
+% \setlength{\evensidemargin}{15.5pt}	% page margins
+\setlength{\footskip}{60pt}
+\setlength{\headheight}{16pt}	% header height (should be > 15pt)
+\graphicspath{ {../img/} }	% image path declaration
+
+% ==========================================
+% headers/footers:
+\newcommand {\addHeader} [2] {
+        \fancyhead[L] {
+                      #1
+        }
+        \fancyhead[R] {
+	              #2
+        }
+}
+

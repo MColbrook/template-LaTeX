@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Writing codes in the \LaTeX \nobreakspace {}environment}{3}{section.1}
+\contentsline {section}{\numberline {2}Special functions that you can use}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Functions for collaboration}{3}{subsection.2.1}
+\contentsline {section}{\numberline {3}Included files}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Codes}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Images}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Formatting file}{4}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Bibliography}{5}{subsection.3.4}
